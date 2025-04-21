@@ -8619,7 +8619,7 @@ h1, h2, h3, h4, h5,
         width: 100%;
         height: 300px; } }
 
-.staff {
+.student-card {
   overflow: hidden;
   margin-bottom: 30px;
   -moz-transition: all 0.3s ease;
@@ -8627,9 +8627,9 @@ h1, h2, h3, h4, h5,
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   transition: all 0.3s ease; }
-  .staff .img-wrap {
+  .student-card  .img-wrap {
     height: 300px; }
-  .staff .img {
+  .student-card  .img {
     width: 100%;
     display: block;
     background-position: top center;
@@ -8638,7 +8638,7 @@ h1, h2, h3, h4, h5,
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease; }
-  .staff .text {
+  .student-card  .text {
     position: relative;
     background: #fff;
     -moz-transition: all 0.3s ease;
@@ -8646,7 +8646,7 @@ h1, h2, h3, h4, h5,
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease; }
-    .staff .text h3 {
+    .student-card  .text h3 {
       font-size: 24px;
       font-weight: 500;
       margin-bottom: 0;
@@ -8655,14 +8655,14 @@ h1, h2, h3, h4, h5,
       -webkit-transition: all 0.3s ease;
       -ms-transition: all 0.3s ease;
       transition: all 0.3s ease; }
-    .staff .text .position {
+    .student-card  .text .position {
       text-transform: uppercase;
       color: #b3b3b3;
       display: block;
       letter-spacing: 1px; }
-    .staff .text .faded {
+    .student-card  .text .faded {
       opacity: 1; }
-  .staff .ftco-social {
+  .student-card  .ftco-social {
     position: absolute;
     top: -30px;
     left: 0;
@@ -8675,14 +8675,14 @@ h1, h2, h3, h4, h5,
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease; }
-    .staff .ftco-social li a {
+    .student-card  .ftco-social li a {
       color: #fda638; }
-  .staff:hover .ftco-social, .staff:focus .ftco-social {
+  .student-card :hover .ftco-social, .student-card :focus .ftco-social {
     opacity: 1;
     top: -40px; }
-  .staff:hover .img, .staff:focus .img {
+  .student-card :hover .img, .student-card :focus .img {
     margin-top: -10px; }
-  .staff:hover .text h3, .staff:focus .text h3 {
+  .student-card :hover .text h3, .student-card :focus .text h3 {
     color: #1eaaf1; }
 
 .ftco-social {
