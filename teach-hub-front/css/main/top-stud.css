@@ -1,51 +1,66 @@
- 
-.title{
-    display: flex;
-    justify-content: center;
-    font-family: 'Pacifico';
-}
-@property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-  }
-  
-  .group-header {
-    width: fit-content;
-    margin-bottom: 40px;
-    color: rgb(255, 174, 0);
-    padding: 10px;
-    background: #ffffff;
-    border-radius: 10px;
-    position: relative;
-  }
-  
-  .group-header::after,
-  .group-header::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    padding: 3px;
-    border-radius: 10px;
-    animation: spin 3s linear infinite;
-  }
-  
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 
-  
-  @keyframes spin {
-    from {
-      --angle: 0deg;
-    }
-    to {
-      --angle: 360deg;
-    }
+.group-header {
+  font-family: "Courgette", cursive;
+  text-align: center;
+  margin: 40px;
+  color: rgb(85, 85, 85);
+  justify-content: center;
+}
+
+.same-grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 992px) {
+  .same-grade {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
+}
+
+@media (max-width: 576px) {
+  .same-grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stud-card {
+  border-radius: 9px;
+  background-color: #eee;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:fit-content ;
+  min-width: 250px;
+  transition: 0.3s;
+}
+
+.stud-card:hover {
+  transform: scale(1.05);
+}
+
+.card-img {
+  aspect-ratio: 1 / 1; 
+  border-radius: 9px 9px 0 0 ;
+  border-bottom: 2px solid #dad5d5;
+}
+
+.card-info{
+  padding-top:10px;
+}
+.card-span{
+  margin-top:10px;
+  font-size: 20px;
+  color: #999;
+}
+.card-span i{
+
+  color: gold;
+}
+
 
 
