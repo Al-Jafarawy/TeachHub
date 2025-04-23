@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
-
+.about-this-page h2,
 .group-header {
-  font-family: "Courgette", cursive;
+  font-weight: 700;
   text-align: center;
   margin: 40px;
   color: rgb(85, 85, 85);
   justify-content: center;
 }
+
 
 .same-grade {
   display: grid;
@@ -34,33 +34,35 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height:fit-content ;
+  height: fit-content;
   min-width: 250px;
   transition: 0.3s;
 }
 
 .stud-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .card-img {
-  aspect-ratio: 1 / 1; 
-  border-radius: 9px 9px 0 0 ;
+  aspect-ratio: 1 / 1;
+  border-radius: 9px 9px 0 0;
   border-bottom: 2px solid #dad5d5;
 }
 
-.card-info{
-  padding-top:10px;
+.card-info {
+  padding-top: 10px;
 }
-.card-span{
-  margin-top:10px;
+.card-span {
+  margin-top: 10px;
   font-size: 20px;
   color: #999;
 }
-.card-span i{
-
+.postion-1 i {
   color: gold;
 }
-
-
-
+.postion-2 i {
+  color: silver;
+}
+.postion-3 i {
+  color: #cd7f32;
+}
