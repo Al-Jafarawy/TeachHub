@@ -1,35 +1,35 @@
+.container-contact {
+}
 .heading-ser {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-top: 30px;
-  align-items: flex-end;
 }
 
+.heading-group {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
 .all-heading-cont {
   font-weight: 700;
   font-size: 35px;
   color: orange;
   letter-spacing: -1px;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 0px;
 }
 
-.heading-ser img {
+.heading-image {
+  align-self: center;
   height: 45px;
   width: 45px;
   margin-right: 10px;
-  margin-bottom: 7px;
 }
 
-#portfolio .heading-ser img {
-  height: 45px;
-  width: 45px;
-  margin-right: 10px;
-  margin-bottom: 7px;
-  border-radius: 40px;
-}
 .heading-ser span {
-  color:orange;
+  color: orange;
   letter-spacing: -2px;
 }
 
@@ -37,17 +37,13 @@
   border: none;
   width: 160px;
   height: 5px;
-  background-color: var(--main-color);
-  margin: 10px auto 0px;
+  background-color: rgb(87, 174, 224)c;
+  margin: 5px auto 0px;
   box-shadow: 2px 2px 3px 1px rgb(199, 196, 196);
 }
 
 /* start of contact  */
-#contact {
-  background-color: #ebebeb;
-  margin-top: -30px;
-  padding-bottom: 30px;
-}
+
 .contact-content {
   margin: 40px;
   padding: 20px;
