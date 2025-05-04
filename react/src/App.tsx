@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home.tsx";
-import Header from "./Components/HTML COMPO/Header/header.tsx";
-import Profile from "./Components/HTML COMPO/Profile/Profile.tsx";
-import Reports from "./Components/HTML COMPO/Report/Report .tsx";
-import Video from "./Components/HTML COMPO/Vid/Vid.tsx";
-import Works from "./Components/HTML COMPO/Works/Works.tsx";
-import About from "./Components/HTML COMPO/About/About.tsx";
+import Header from "./Components/HTML COMPO/header.tsx";
+import Profile from "./Components/HTML COMPO/Profile.tsx";
+import Reports from "./Components/HTML COMPO/Report .tsx";
+import Video from "./Components/HTML COMPO/Vid.tsx";
+import Works from "./Components/HTML COMPO/Works.tsx";
+import About from "./Components/HTML COMPO/About.tsx";
 import TopStudents from "./Components/HTML COMPO/TopStudents.tsx";
-import Courses from "./Components/HTML COMPO/Courses/Courses.tsx";
-import Pricing from "./Components/HTML COMPO/Pricing/Pricing.tsx";
-import Blog from "./Components/HTML COMPO/Blog/Blog.tsx";
-import Contact from "./Components/HTML COMPO/Contact/Contact.tsx";
-import Login from "./Components/HTML COMPO/Login/Login.tsx";
-import SignUp from "./Components/HTML COMPO/SignUp/SignUp.tsx";
-import Footer from "./Components/css/Footer/Footer.tsx";
+import Courses from "./Components/HTML COMPO/Courses.tsx";
+import Pricing from "./Components/HTML COMPO/Pricing.tsx";
+import Blog from "./Components/HTML COMPO/Blog.tsx";
+import Contact from "./Components/HTML COMPO/Contact.tsx";
+import Login from "./Components/HTML COMPO/Login.tsx";
+import SignUp from "./Components/HTML COMPO/SignUp.tsx";
+import Footer from "./Components/Footer/Footer.tsx";
 
 const App = () => {
   return (
