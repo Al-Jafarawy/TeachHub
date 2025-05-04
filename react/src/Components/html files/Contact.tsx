@@ -1,19 +1,15 @@
 
 import { useEffect } from 'react';
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 import "../css/style.css";
 import "../css/main/contact.css";
 
-
-import "aos/dist/aos.css";  // Importing AOS library CSS
-import "../css/style.css";  // Importing main styles
-import "../css/main/contact.css";  // Importing contact specific styles
+import "../css/style.css";  
+import "../css/main/contact.css";
 
 
 const ContactUS = () => {
   useEffect(() => {
-    // عند تحميل الصفحة، اختفاء الـ loader بعد 1 ثانية
     setTimeout(() => {
       const loader = document.getElementById("ftco-loader");
       if (loader) loader.style.display = "none"; 
