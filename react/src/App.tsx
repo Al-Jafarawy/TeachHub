@@ -9,8 +9,7 @@ import Video from "./Components/html files/Vid.tsx";
 import Works from "./Components/html files/Works.tsx";
 import About from "./Components/html files/About.tsx";
 import TopStudents from "./Components/html files/TopStudents.tsx";
-import Courses from "./Components/html files/Courses.tsx";
-import Pricing from "./Components/html files/Pricing.tsx";
+import Courses from "./Components/html files/Course.tsx";
 import Blog from "./Components/html files/Blog.tsx";
 import Contact from "./Components/html files/Contact.tsx";
 import Login from "./Components/html files/Login.tsx";
@@ -33,7 +32,6 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/top-students" element={<TopStudents />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/pricing" element={<Pricing />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />

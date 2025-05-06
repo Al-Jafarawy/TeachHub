@@ -59,10 +59,7 @@ const EnglishUnits = () => {
 
         <div className="space-y-6">
           {units.map((unit, unitIndex) => (
-            <div
-              key={unitIndex}
-              className="bg-[#FFF8E1] rounded-xl shadow-md p-5" // تم تغيير اللون هنا
-            >
+            <div key={unitIndex} className="bg-white rounded-xl shadow-md p-5">
               <button
                 onClick={() => toggleUnit(unitIndex)}
                 className="w-full text-left px-4 py-4 bg-transparent text-[#C89934] text-3xl md:text-4xl font-bold rounded-t-xl text-center hover:bg-[#C89934]  transition"
