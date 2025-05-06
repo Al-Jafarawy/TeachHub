@@ -74,7 +74,7 @@ const ContactUS = () => {
 
       {/* Facebook and WhatsApp Sections */}
       <div className="heading-group">
-          <img className="heading-image" src="/images/social.jpg" alt="" />
+          <img className="heading-image" src="/images/call-center.png" alt="" />
           <div className="heading-ser">
             <h2 className="all-heading-cont">Social Media</h2>
             <hr className="all-hr" />
