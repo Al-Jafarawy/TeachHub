@@ -1,9 +1,17 @@
 
 import { useEffect } from 'react';
+<<<<<<< HEAD:react/src/Components/HTML COMPO/TopStudents.tsx
+=======
+
+>>>>>>> a9758cea2150a7133cfc578c0e48f4a2d6f49051:react/src/Components/html files/TopStudents.tsx
 import "../css/style.css";
 import "../css/main/top-stud.css";
 
 const TopStudents = () => {
+<<<<<<< HEAD:react/src/Components/HTML COMPO/TopStudents.tsx
+=======
+
+>>>>>>> a9758cea2150a7133cfc578c0e48f4a2d6f49051:react/src/Components/html files/TopStudents.tsx
 
   return (
     <>

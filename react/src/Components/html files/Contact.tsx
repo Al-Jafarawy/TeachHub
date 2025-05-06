@@ -1,3 +1,4 @@
+<<<<<<< HEAD:react/src/Components/HTML COMPO/Contact.tsx
 const ContactUS = () => {
     return (
         <>
@@ -117,3 +118,129 @@ const ContactUS = () => {
 }
 
 export default ContactUS
+=======
+
+import { useEffect } from 'react';
+
+import "../css/style.css";
+import "../css/main/contact.css";
+
+import "../css/style.css";  
+import "../css/main/contact.css";
+
+
+const ContactUS = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      const loader = document.getElementById("ftco-loader");
+      if (loader) loader.style.display = "none"; 
+    }, 1000); 
+  }, []);
+
+  return (
+    <>
+      <section className="hero-wrap hero-wrap-2" style={{ backgroundImage: "url('/images/bg_1.jpg')" }}>
+        <div className="overlay"></div>
+        <div className="container">
+          <div className="row no-gutters slider-text align-items-center justify-content-center">
+            <div className="col-md-9 ftco-animate text-center">
+              <h1 className="mb-2 bread">Contact Us</h1>
+              <p className="breadcrumbs">
+                <span className="mr-2">
+                  <a href="index.html">
+                    Home <i className="ion-ios-arrow-forward"></i>
+                  </a>
+                </span>
+                <span>Contact</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="ftco-section contact-section">
+        <div className="container">
+          <div className="row d-flex mb-5 contact-info">
+            <div className="col-md-3 d-flex">
+              <div className="bg-light align-self-stretch box p-4 text-center">
+                <h3 className="mb-4">Address</h3>
+                <p>207 Al-Zohor St. Mohamed Ali, cairo, Egypt</p>
+              </div>
+            </div>
+            <div className="col-md-3 d-flex">
+              <div className="bg-light align-self-stretch box p-4 text-center">
+                <h3 className="mb-4">Contact Number</h3>
+                <p>
+                  <a href="tel://+201007189296">+20 100 XXX XXXX</a>
+                </p>
+              </div>
+            </div>
+            <div className="col-md-3 d-flex">
+              <div className="bg-light align-self-stretch box p-4 text-center">
+                <h3 className="mb-4">Email Address</h3>
+                <p>
+                  <a href="mailto:info@yoursite.com">group.b@Teachhub.com</a>
+                </p>
+              </div>
+            </div>
+            <div className="col-md-3 d-flex">
+              <div className="bg-light align-self-stretch box p-4 text-center">
+                <h3 className="mb-4">Website</h3>
+                <p>
+                  <a href="#">Teachhub.com</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div>
+        <div className="container-contact">
+          <div className="heading-group">
+            <img className="heading-image" src="/images/call-center.png" alt="" />
+            <div className="heading-ser">
+              <h2 className="all-heading-cont">Contact</h2>
+              <hr className="all-hr" />
+            </div>
+          </div>
+          <div className="contact-content">
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="c3257d43-02fb-4ff0-9a67-2128b8f8fc43" />
+              <input type="text" className="name-text" name="text" id="taxt" placeholder="Name" required />
+              <input type="email" className="email" name="email" id="email" placeholder="Email" required />
+              <textarea className="message" name="massage" id="massage" cols={30} rows={10} placeholder="Massage" />
+              <button type="submit" className="button">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-js"></div>
+
+      {/* loader */}
+      <div id="ftco-loader" className="show fullscreen">
+        <svg className="circular" width="48px" height="48px">
+          <circle className="path-bg" cx="24" cy="24" r="22" fill="none" strokeWidth="4" stroke="#eeeeee" />
+          <circle
+            className="path"
+            cx="24"
+            cy="24"
+            r="22"
+            fill="none"
+            strokeWidth="4"
+            strokeMiterlimit="10"
+            stroke="#F96D00"
+          />
+        </svg>
+      </div>
+
+      <script src="./js/utils/footer.js" type="module"></script>
+      <script src="https://cdn.jsdelivr.net/npm/aos@latest/dist/aos.js"></script>
+      <script src="js/main.js" type="module"></script>
+    </>
+  );
+};
+
+export default ContactUS;
+>>>>>>> a9758cea2150a7133cfc578c0e48f4a2d6f49051:react/src/Components/html files/Contact.tsx
