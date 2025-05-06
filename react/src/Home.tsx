@@ -1,5 +1,5 @@
-import Head from './Components/HTML COMPO/Head.tsx';
-import Hero from './Components/HTML COMPO/Hero/Hero.tsx';
+import Head from './Components/Head.tsx';
+import Hero from './Components/Hero/Hero.tsx';
 // import Vid from './Components/Vid/Vid.tsx';
 // import Works from './Components/Works/Works';
 // import Profile from './Components/Profile/Profile.tsx';
