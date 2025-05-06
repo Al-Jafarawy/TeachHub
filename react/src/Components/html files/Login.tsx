@@ -5,17 +5,17 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // تمنع الريفرش
-
+    e.preventDefault();
+    
     try {
-      const BASEURL = import.meta.env.VITE_BASE_URL // تأكد من وجود المتغير
-      console.log('BASEURL:', BASEURL); // طباعة المتغير للتأكد من قيمته
+      const BASEURL = import.meta.env.VITE_BASE_URL 
+      console.log('BASEURL:', BASEURL); 
       const res = await fetch(`${BASEURL}users/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // لو السيرفر بيرجع الكوكي
+        credentials: 'include', 
         body: JSON.stringify({ username, password }),
       });
 
@@ -24,7 +24,7 @@ const Login = () => {
       if (!res.ok) throw new Error(data.error || 'Login failed');
 
       console.log('Logged in:', data);
-      // تقدر تعمل redirect أو تخزين هنا
+
     } catch (err) {
       if (err instanceof Error) {
         console.error('Login error:', err.message);
