@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext"; // ✅ استدعاء الكونتكست
 import Home from "./Home.tsx";
 
 
@@ -15,32 +16,36 @@ import Contact from "./Components/html files/Contact.tsx";
 import Login from "./Components/html files/Login.tsx";
 import SignUp from "./Components/html files/SignUp.tsx";
 import Footer from "./Components/html files/Footer.tsx";
+// import Pricing from "./Components/html files/Pricing.tsx";
 
 
 const App = () => {
   return (
-    <Router>
-      <div className="app-container">
-        <Header />
-        <main className="container mx-auto px-4 py-6">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/video" element={<Video />} />
-            <Route path="/works" element={<Works />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/top-students" element={<TopStudents />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider> 
+      <Router>
+        <div className="app-container">
+          <Header />
+          <main className="container mx-auto px-4 py-6">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/reports" element={<Reports />} />
+              <Route path="/video" element={<Video />} />
+              <Route path="/works" element={<Works />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/top-students" element={<TopStudents />} />
+              <Route path="/courses" element={<Courses />} />
+              {/* <Route path="/pricing" element={<Pricing />} /> */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 };
 
