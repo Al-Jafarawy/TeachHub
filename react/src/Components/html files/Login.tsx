@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
 import { useEffect } from 'react';
-
+import { useAuth } from '../../context/AuthContext';
+// import { Link } from 'react-router-dom'; // Removed unused import
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { isLoggedIn, setIsLoggedIn, setCheckAdmin } = useAuth();
+  const { setIsLoggedIn, setCheckAdmin } = useAuth();
 
   useEffect(() => {
     setCheckAdmin(false);
@@ -16,14 +16,15 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const BASEURL = import.meta.env.VITE_BASE_URL 
-      console.log('BASEURL:', BASEURL); 
+      const BASEURL = import.meta.env.VITE_BASE_URL;
+      console.log('BASEURL:', BASEURL);
+
       const res = await fetch(`${BASEURL}users/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', 
+        credentials: 'include',
         body: JSON.stringify({ username, password }),
       });
 
@@ -34,13 +35,13 @@ const Login = () => {
       console.log('Logged in:', data);
       setIsLoggedIn(true);
 
-
     } catch (err) {
       if (err instanceof Error) {
         console.error('Login error:', err.message);
       } else {
         console.error('Login error:', err);
       }
+      setIsLoggedIn(false);
     }
   };
 
@@ -48,7 +49,9 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Sign in to your account
+          </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{' '}
             <a href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">

@@ -1,24 +1,22 @@
-
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 import "../css/style.css";
 import "../css/main/contact.css";
-
-import "../css/style.css";  
-import "../css/main/contact.css";
-
 
 const ContactUS = () => {
   useEffect(() => {
     setTimeout(() => {
       const loader = document.getElementById("ftco-loader");
-      if (loader) loader.style.display = "none"; 
-    }, 1000); 
+      if (loader) loader.style.display = "none";
+    }, 1000);
   }, []);
 
   return (
     <>
-      <section className="hero-wrap hero-wrap-2" style={{ backgroundImage: "url('/images/bg_1.jpg')" }}>
+      <section
+        className="hero-wrap hero-wrap-2"
+        style={{ backgroundImage: "url('/images/bg_1.jpg')" }}
+      >
         <div className="overlay"></div>
         <div className="container">
           <div className="row no-gutters slider-text align-items-center justify-content-center">
@@ -74,24 +72,113 @@ const ContactUS = () => {
         </div>
       </section>
 
-      <div>
-        <div className="container-contact">
-          <div className="heading-group">
-            <img className="heading-image" src="/images/call-center.png" alt="" />
-            <div className="heading-ser">
-              <h2 className="all-heading-cont">Contact</h2>
-              <hr className="all-hr" />
+      {/* Facebook and WhatsApp Sections */}
+      <div className="heading-group">
+          <img className="heading-image" src="/images/social.jpg" alt="" />
+          <div className="heading-ser">
+            <h2 className="all-heading-cont">Social Media</h2>
+            <hr className="all-hr" />
+          </div>
+        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        {/* Facebook */}
+        <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+          <img
+            src="/2021_Facebook_icon.svg.png"
+            alt="Facebook"
+            className="w-16 h-16 mx-auto mb-6"
+          />
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            Facebook Groups
+          </h3>
+          <div className="flex flex-col items-center space-y-4">
+            <div className="flex gap-4">
+              {["Secondery One", "Secondery Two"].map((grade, index) => (
+                <button
+                  key={index}
+                  className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-2 px-6 rounded-lg transition duration-300"
+                >
+                  {grade}
+                </button>
+              ))}
+            </div>
+            <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+              Secondery Three
+            </button>
+          </div>
+        </div>
+
+        {/* WhatsApp */}
+        <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+          <img
+            src="/WhatsApp.svg.webp"
+            alt="WhatsApp"
+            className="w-16 h-16 mx-auto mb-6"
+          />
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            WhatsApp Numbers
+          </h3>
+          <div className="flex flex-col items-center space-y-4">
+            <div className="flex gap-4">
+              {["0100 XXX XXXX", "0111 XXX XXXX"].map((phone, idx) => (
+                <a
+                  key={idx}
+                  href={`https://wa.me/2${phone.replace(/\s+/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-medium py-2 px-6 rounded-lg transition duration-300 no-underline"
+                >
+                  {phone}
+                </a>
+              ))}
             </div>
           </div>
-          <div className="contact-content">
-            <form action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="c3257d43-02fb-4ff0-9a67-2128b8f8fc43" />
-              <input type="text" className="name-text" name="text" id="taxt" placeholder="Name" required />
-              <input type="email" className="email" name="email" id="email" placeholder="Email" required />
-              <textarea className="message" name="massage" id="massage" cols={30} rows={10} placeholder="Massage" />
-              <button type="submit" className="button">Submit</button>
-            </form>
+        </div>
+      </div>
+
+      <div className="container-contact">
+        <div className="heading-group">
+          <img className="heading-image" src="/images/call-center.png" alt="" />
+          <div className="heading-ser">
+            <h2 className="all-heading-cont">Contact</h2>
+            <hr className="all-hr" />
           </div>
+        </div>
+        <div className="contact-content">
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input
+              type="hidden"
+              name="access_key"
+              value="c3257d43-02fb-4ff0-9a67-2128b8f8fc43"
+            />
+            <input
+              type="text"
+              className="name-text"
+              name="text"
+              id="taxt"
+              placeholder="Name"
+              required
+            />
+            <input
+              type="email"
+              className="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
+            <textarea
+              className="message"
+              name="massage"
+              id="massage"
+              cols={30}
+              rows={10}
+              placeholder="Massage"
+            />
+            <button type="submit" className="button">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
 
@@ -100,7 +187,15 @@ const ContactUS = () => {
       {/* loader */}
       <div id="ftco-loader" className="show fullscreen">
         <svg className="circular" width="48px" height="48px">
-          <circle className="path-bg" cx="24" cy="24" r="22" fill="none" strokeWidth="4" stroke="#eeeeee" />
+          <circle
+            className="path-bg"
+            cx="24"
+            cy="24"
+            r="22"
+            fill="none"
+            strokeWidth="4"
+            stroke="#eeeeee"
+          />
           <circle
             className="path"
             cx="24"
