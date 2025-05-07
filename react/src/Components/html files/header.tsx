@@ -1,7 +1,15 @@
-import React from 'react'
+// import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext';
+import { useEffect } from 'react';
+// import { useState } from 'react';
 
 const header = () => {
+  const { isLoggedIn, setCheckAdmin } = useAuth();
+
+  useEffect(() => {
+    setCheckAdmin(false);
+  }, []);
   return (
     <>
       <header className="bg-gradient-to-r from-[#C89934] to-indigo-700 shadow-lg">
@@ -63,10 +71,14 @@ const header = () => {
             </nav>
             
             {/* Auth Buttons */}
-            <div className="flex space-x-3">
+            {!isLoggedIn ? 
+            (
+              <div className="flex space-x-3">
               <Link to="/login" className="bg-white text-[#C89934] hover:bg-blue-100 px-4 py-2 rounded-lg font-medium transition duration-300">Login</Link>
               <Link to="/signup" className="bg-[#C89934] text-white hover:bg-[#A67B28] px-4 py-2 rounded-lg font-medium transition duration-300">Sign Up</Link>
             </div>
+            ) : ('')
+          }
             
             {/* Mobile Menu Button */}
             <div className="md:hidden">
