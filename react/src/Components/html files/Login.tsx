@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { setIsLoggedIn, setCheckAdmin } = useAuth();
+  const { isLoggedIn, setIsLoggedIn, setCheckAdmin } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCheckAdmin(false);
+     if (isLoggedIn) {
+      navigate('/'); 
+    }
   }, []);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,7 +21,6 @@ const Login = () => {
 
     try {
       const BASEURL = import.meta.env.VITE_BASE_URL;
-      console.log('BASEURL:', BASEURL);
 
       const res = await fetch(`${BASEURL}users/auth/login`, {
         method: 'POST',
@@ -33,6 +37,7 @@ const Login = () => {
 
       console.log('Logged in:', data);
       setIsLoggedIn(true);
+      navigate('/'); 
 
     } catch (err) {
       if (err instanceof Error) {

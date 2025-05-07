@@ -1,14 +1,40 @@
-import { Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext"; // Assuming you have an AuthContext to manage authentication state
-import { useEffect } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext'; // Assuming you have an AuthContext to manage authentication state
+import { useEffect } from 'react';
 
 const header = () => {
-  const { isLoggedIn, setCheckAdmin } = useAuth(); // Assuming you have an AuthContext to manage authentication state
+  const { isLoggedIn, setIsLoggedIn, setCheckAdmin, authLoading } = useAuth(); // Assuming you have an AuthContext to manage authentication state
+  const navigate = useNavigate(); // Assuming you are using react-router-dom for navigation
 
   useEffect(() => {
-    setCheckAdmin(false);
+    const checkAdmin = async () => {
+      await setCheckAdmin(false);
+    };
+    checkAdmin();
+    navigate('/login'); // Redirect to home page on component mount
   }, []);
-  
+  console.log(isLoggedIn);
+
+  const handelLogout = async () => {
+    try {
+      const BASEURL = import.meta.env.VITE_BASE_URL;
+      const res = await fetch(`${BASEURL}users/auth/logout`, {
+        method: 'GET',
+        credentials: 'include',
+      });
+      if (!res.ok) throw new Error('Logout failed');
+      console.log('Logged out successfully');
+      setIsLoggedIn(false);
+      navigate('/login'); // Redirect to login page after logout
+    } catch (err) {
+      if (err instanceof Error) {
+        console.error('Logout error:', err.message);
+      } else {
+        console.error('Logout error:', err);
+      }
+    }
+  };
+
   return (
     <>
       <header className="bg-gradient-to-r from-[#C89934] to-indigo-700 shadow-lg">
@@ -90,25 +116,31 @@ const header = () => {
             </nav>
 
             {/* Auth Buttons */}
-            {
-              isLoggedIn ? 
-              (
+            {!authLoading ? (
+              isLoggedIn ? (
+                <button
+                  onClick={handelLogout}
+                  className="bg-white text-[#C89934] hover:bg-blue-100 px-4 py-2 rounded-lg font-medium transition duration-300"
+                >
+                  Logout
+                </button>
+              ) : (
                 <div className="flex space-x-3">
-              <Link
-                to="/login"
-                className="bg-white text-[#C89934] hover:bg-blue-100 px-4 py-2 rounded-lg font-medium transition duration-300"
-              >
-                Login
-              </Link>
-              <Link
-                to="/signup"
-                className="bg-[#C89934] text-white hover:bg-[#A67B28] px-4 py-2 rounded-lg font-medium transition duration-300"
-              >
-                Sign Up
-              </Link>
-            </div>
-              ) : ('')
-            }
+                  <Link
+                    to="/login"
+                    className="bg-white text-[#C89934] hover:bg-blue-100 px-4 py-2 rounded-lg font-medium transition duration-300"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="bg-[#C89934] text-white hover:bg-[#A67B28] px-4 py-2 rounded-lg font-medium transition duration-300"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )
+            ) : null}
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">

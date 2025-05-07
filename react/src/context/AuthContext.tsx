@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 type AuthContextType = {
   isLoggedIn: boolean;
   isAdmin: boolean;
+  authLoading: boolean;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   setIsAdmin: React.Dispatch<React.SetStateAction<boolean>>;
   setCheckAdmin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -20,11 +21,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [checkAdmin, setCheckAdmin] = useState(false); 
+  const [authLoading, setAuthLoading] = useState(true); 
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const authRes = await fetch(`${import.meta.env.VITE_BASE_URL}auth`, {
+        const authRes = await fetch(`${import.meta.env.VITE_BASE_URL}users/auth`, {
           credentials: 'include',
         });
         if (authRes.ok) {
@@ -35,7 +37,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setIsAdmin(false); 
 
         if(checkAdmin) {
-          const adminRes = await fetch(`${import.meta.env.VITE_BASE_URL}auth/admin`, {
+          const adminRes = await fetch(`${import.meta.env.VITE_BASE_URL}users/auth/admin`, {
             credentials: 'include',
           });
           if (adminRes.ok) {
@@ -48,13 +50,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         console.error('Auth check failed:', err);
         setIsLoggedIn(false);
         setIsAdmin(false);
+      } finally {
+        setAuthLoading(false); 
       }
     };
 
     checkAuth();
   }, []);
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isAdmin, setIsLoggedIn, setIsAdmin, setCheckAdmin }}>
+    <AuthContext.Provider value={{ isLoggedIn, isAdmin, setIsLoggedIn, setIsAdmin, setCheckAdmin, authLoading }}>
       {children}
     </AuthContext.Provider>
   );
