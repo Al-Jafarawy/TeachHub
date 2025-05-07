@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useAuth } from '../../context/AuthContext';
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { setIsLoggedIn, setCheckAdmin } = useAuth();
+
+  useEffect(() => {
+    setCheckAdmin(false);
+  }, []);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,13 +32,15 @@ const Login = () => {
       if (!res.ok) throw new Error(data.error || 'Login failed');
 
       console.log('Logged in:', data);
-      // يمكنك إضافة التنقل هنا بعد تسجيل الدخول بنجاح
+      setIsLoggedIn(true);
+
     } catch (err) {
       if (err instanceof Error) {
         console.error('Login error:', err.message);
       } else {
         console.error('Login error:', err);
       }
+      setIsLoggedIn(false);
     }
   };
 
