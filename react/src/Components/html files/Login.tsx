@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useAuth } from '../../context/AuthContext';
-// import { Link } from 'react-router-dom'; // Removed unused import
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { setIsLoggedIn, setCheckAdmin } = useAuth();
-
-  useEffect(() => {
-    setCheckAdmin(false);
-  }, []);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,15 +24,13 @@ const Login = () => {
       if (!res.ok) throw new Error(data.error || 'Login failed');
 
       console.log('Logged in:', data);
-      setIsLoggedIn(true);
-
+      // يمكنك إضافة التنقل هنا بعد تسجيل الدخول بنجاح
     } catch (err) {
       if (err instanceof Error) {
         console.error('Login error:', err.message);
       } else {
         console.error('Login error:', err);
       }
-      setIsLoggedIn(false);
     }
   };
 

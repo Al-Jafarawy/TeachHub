@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext"; // ✅ استدعاء الكونتكست
 import Home from "./Home.tsx";
 
-
 import Header from "./Components/html files/header.tsx";
 import Profile from "./Components/html files/Profile.tsx";
 import Reports from "./Components/html files/Report .tsx";
@@ -18,10 +17,9 @@ import SignUp from "./Components/html files/SignUp.tsx";
 import Footer from "./Components/html files/Footer.tsx";
 // import Pricing from "./Components/html files/Pricing.tsx";
 
-
 const App = () => {
   return (
-    <AuthProvider> 
+    <AuthProvider>
       <Router>
         <div className="app-container">
           <Header />
@@ -35,7 +33,6 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/top-students" element={<TopStudents />} />
               <Route path="/courses" element={<Courses />} />
-              {/* <Route path="/pricing" element={<Pricing />} /> */}
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
