@@ -1,11 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext"; // ✅ استدعاء الكونتكست
+import { AuthProvider } from "./context/AuthContext"; 
 import Home from "./Home.tsx";
-
 import Header from "./Components/html files/header.tsx";
 import Profile from "./Components/html files/Profile.tsx";
 import Reports from "./Components/html files/Report .tsx";
-import Video from "./Components/html files/Vid.tsx";
 import Works from "./Components/html files/Works.tsx";
 import About from "./Components/html files/About.tsx";
 import TopStudents from "./Components/html files/TopStudents.tsx";
@@ -15,7 +13,7 @@ import Contact from "./Components/html files/Contact.tsx";
 import Login from "./Components/html files/Login.tsx";
 import SignUp from "./Components/html files/SignUp.tsx";
 import Footer from "./Components/html files/Footer.tsx";
-// import Pricing from "./Components/html files/Pricing.tsx";
+
 
 const App = () => {
   return (
@@ -28,7 +26,6 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/reports" element={<Reports />} />
-              <Route path="/video" element={<Video />} />
               <Route path="/works" element={<Works />} />
               <Route path="/about" element={<About />} />
               <Route path="/top-students" element={<TopStudents />} />

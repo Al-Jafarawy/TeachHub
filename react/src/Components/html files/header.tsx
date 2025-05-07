@@ -37,14 +37,6 @@ const header = () => {
                 Reports
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C89934] group-hover:w-full transition-all duration-300"></span>
               </Link>
-              {/* video */}
-              <Link
-                to="/video"
-                className="text-white hover:text-blue-200 transition duration-300 font-medium relative group"
-              >
-                Video
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C89934] group-hover:w-full transition-all duration-300"></span>
-              </Link>
               {/* works */}
               <Link
                 to="/works"
