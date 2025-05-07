@@ -9,10 +9,14 @@ const header = () => {
   useEffect(() => {
     const checkAdmin = async () => {
       await setCheckAdmin(false);
+      if (!isLoggedIn && !authLoading) {
+        navigate('/login'); // Redirect to login page if not logged in
+      } 
     };
     checkAdmin();
-    navigate('/login'); // Redirect to home page on component mount
-  }, []);
+    
+      
+  }, [authLoading, isLoggedIn]);
   console.log(isLoggedIn);
 
   const handelLogout = async () => {

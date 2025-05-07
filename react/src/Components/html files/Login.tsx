@@ -11,6 +11,7 @@ const Login = () => {
 
   useEffect(() => {
     setCheckAdmin(false);
+    console.log(isLoggedIn);
      if (isLoggedIn) {
       navigate('/'); 
     }
