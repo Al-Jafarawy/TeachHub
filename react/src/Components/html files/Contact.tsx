@@ -52,7 +52,7 @@ const ContactUS = () => {
 
       <div style={{ marginTop: "-150px" }}>
         <div className="heading-group" style={{ margin: "50px" }}>
-          <img className="heading-image" src="/social .jpg" alt="" />
+          <img className="heading-image social-image" src="/social .jpg" alt="" />
           <div className="heading-ser">
             <h2 className="all-heading-cont">Social Media</h2>
             <hr className="all-hr" />
@@ -95,15 +95,16 @@ const ContactUS = () => {
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               WhatsApp Numbers
             </h3>
-            <div className="flex flex-col items-center space-y-4">
-              <div className="flex gap-4">
+            <div className="flex flex-col items-center space-y-4  ">
+              <div className="flex gap-4 " >
                 {["0100 XXX XXXX", "0111 XXX XXXX"].map((phone, idx) => (
-                  <a
+                  <a style={{backgroundColor:'white' ,color:'#22c55e'}}
+                  
                     key={idx}
                     href={`https://wa.me/2${phone.replace(/\s+/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className=" a-green border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-medium py-2 px-6 rounded-lg transition duration-300 no-underline"
+                    className=" border-2 border-green-500  font-medium py-2 px-6 rounded-lg transition duration-300 no-underline"
                   >
                     {phone}
                   </a>
@@ -113,7 +114,7 @@ const ContactUS = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="container-contact">
         <div className="heading-group">
           <img className="heading-image" src="/images/call-center.png" alt="" />
