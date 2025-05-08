@@ -110,13 +110,12 @@ textarea {
 .button {
   display: block;
   margin: auto;
-
+  padding: 4px;
   height: fit-content;
   width: 40%;
   border: none;
   background-color: #f7f5f5;
   border-radius: 7px;
-  color: var(--secondry-color);
   font-size: 20px;
   letter-spacing: -1px;
   font-weight: 550;
