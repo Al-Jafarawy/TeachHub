@@ -33,7 +33,7 @@ const Works = () => {
     return (
         <div className="container mx-auto px-4 py-12">
             <h2 className="text-3xl font-bold mb-8 text-center" style={{ color: '#C89934',marginBottom:'50px' }}>
-                English Assignments for August
+                English Assignments for April
             </h2>
 
             <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 space-y-8">

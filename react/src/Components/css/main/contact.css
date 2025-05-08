@@ -1,5 +1,16 @@
-.container-contact {
+/* Global shadow and styling for all boxes */
+.box-shadow-global {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 2rem;
 }
+
+.a-green{
+  text-decoration: none;
+  color:rgba(2, 206, 2, 0.5)
+}
+
 .heading-ser {
   display: flex;
   flex-direction: column;
@@ -41,6 +52,8 @@
   margin: 5px auto 0px;
   box-shadow: 2px 2px 3px 1px rgb(199, 196, 196);
 }
+
+
 
 /* start of contact  */
 
@@ -115,3 +128,27 @@ textarea {
 }
 
 /* end of contact */
+/* CSS for button styles */
+.button-face {
+  border: 2px solid #3498db;
+  color: #3498db;
+  background-color: transparent;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-face:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 10px; 
+}
+
+

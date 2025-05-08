@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-
 import "../css/style.css";
 import "../css/main/contact.css";
 
@@ -14,85 +13,64 @@ const ContactUS = () => {
   return (
     <>
       <section
-        className="hero-wrap hero-wrap-2"
+        className="hero-wrap hero-wrap-2 "
         style={{ backgroundImage: "url('/images/bg_1.jpg')" }}
       >
         <div className="overlay"></div>
-        <div className="container">
-          <div className="row no-gutters slider-text align-items-center justify-content-center">
-            <div className="col-md-9 ftco-animate text-center">
-              <h1 className="mb-2 bread">Contact Us</h1>
-              <p className="breadcrumbs">
-                <span className="mr-2">
-                  <a href="index.html">
-                    Home <i className="ion-ios-arrow-forward"></i>
-                  </a>
-                </span>
-                <span>Contact</span>
-              </p>
-            </div>
-          </div>
-        </div>
+        
       </section>
 
-      <section className="ftco-section contact-section">
+      <section className="ftco-section contact-section container ">
         <div className="container">
           <div className="row d-flex mb-5 contact-info">
-            <div className="col-md-3 d-flex">
-              <div className="bg-light align-self-stretch box p-4 text-center">
-                <h3 className="mb-4">Address</h3>
-                <p>207 Al-Zohor St. Mohamed Ali, cairo, Egypt</p>
-              </div>
-            </div>
-            <div className="col-md-3 d-flex">
-              <div className="bg-light align-self-stretch box p-4 text-center">
-                <h3 className="mb-4">Contact Number</h3>
-                <p>
-                  <a href="tel://+201007189296">+20 100 XXX XXXX</a>
-                </p>
-              </div>
-            </div>
-            <div className="col-md-3 d-flex">
-              <div className="bg-light align-self-stretch box p-4 text-center">
-                <h3 className="mb-4">Email Address</h3>
-                <p>
+            {[
+              {
+                title: "Address",
+                content: "207 Al-Zohor St. Mohamed Ali, Cairo, Egypt",
+              },
+              {
+                title: "Email Address",
+                content: (
                   <a href="mailto:info@yoursite.com">group.b@Teachhub.com</a>
-                </p>
+                ),
+              },
+              {
+                title: "Website",
+                content: <a href="#">Teachhub.com</a>,
+              },
+            ].map((item, index) => (
+              <div className="col-md-4 col-12 d-flex mb-4" key={index}>
+                <div className="box-shadow-global text-center p-4 w-full">
+                  <h3 className="mb-4">{item.title}</h3>
+                  <p>{item.content}</p>
+                </div>
               </div>
-            </div>
-            <div className="col-md-3 d-flex">
-              <div className="bg-light align-self-stretch box p-4 text-center">
-                <h3 className="mb-4">Website</h3>
-                <p>
-                  <a href="#">Teachhub.com</a>
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Facebook and WhatsApp Sections */}
-      <div className="heading-group">
-          <img className="heading-image" src="/images/call-center.png" alt="" />
+      <div style={{ marginTop: "-150px" }}>
+        <div className="heading-group" style={{ margin: "50px" }}>
+          <img className="heading-image" src="/social .jpg" alt="" />
           <div className="heading-ser">
             <h2 className="all-heading-cont">Social Media</h2>
             <hr className="all-hr" />
           </div>
         </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-        {/* Facebook */}
-        <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-          <img
-            src="/2021_Facebook_icon.svg.png"
-            alt="Facebook"
-            className="w-16 h-16 mx-auto mb-6"
-          />
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            Facebook Groups
-          </h3>
-          <div className="flex flex-col items-center space-y-4">
-            <div className="flex gap-4">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 px-4">
+          {/* Facebook */}
+          <div className="box-shadow-global text-center">
+            <img
+              src="/2021_Facebook_icon.svg.png"
+              alt="Facebook"
+              className="w-16 h-16 mx-auto mb-6"
+            />
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              Facebook Groups
+            </h3>
+            <div className="flex-container">
               {["Secondery One", "Secondery Two"].map((grade, index) => (
                 <button
                   key={index}
@@ -101,41 +79,40 @@ const ContactUS = () => {
                   {grade}
                 </button>
               ))}
+              <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                Secondery Three
+              </button>
             </div>
-            <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-2 px-6 rounded-lg transition duration-300">
-              Secondery Three
-            </button>
           </div>
-        </div>
 
-        {/* WhatsApp */}
-        <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-          <img
-            src="/WhatsApp.svg.webp"
-            alt="WhatsApp"
-            className="w-16 h-16 mx-auto mb-6"
-          />
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            WhatsApp Numbers
-          </h3>
-          <div className="flex flex-col items-center space-y-4">
-            <div className="flex gap-4">
-              {["0100 XXX XXXX", "0111 XXX XXXX"].map((phone, idx) => (
-                <a
-                  key={idx}
-                  href={`https://wa.me/2${phone.replace(/\s+/g, "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-medium py-2 px-6 rounded-lg transition duration-300 no-underline"
-                >
-                  {phone}
-                </a>
-              ))}
+          {/* WhatsApp */}
+          <div className="box-shadow-global text-center">
+            <img
+              src="/WhatsApp.svg.webp"
+              alt="WhatsApp"
+              className="w-16 h-16 mx-auto mb-6"
+            />
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              WhatsApp Numbers
+            </h3>
+            <div className="flex flex-col items-center space-y-4">
+              <div className="flex gap-4">
+                {["0100 XXX XXXX", "0111 XXX XXXX"].map((phone, idx) => (
+                  <a
+                    key={idx}
+                    href={`https://wa.me/2${phone.replace(/\s+/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className=" a-green border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-medium py-2 px-6 rounded-lg transition duration-300 no-underline"
+                  >
+                    {phone}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-
       <div className="container-contact">
         <div className="heading-group">
           <img className="heading-image" src="/images/call-center.png" alt="" />
@@ -179,6 +156,7 @@ const ContactUS = () => {
               Submit
             </button>
           </form>
+          <img src="/images/contact-ph.avif" alt="" />
         </div>
       </div>
 
