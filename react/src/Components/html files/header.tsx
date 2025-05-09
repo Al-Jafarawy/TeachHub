@@ -8,12 +8,14 @@ const Header = () => {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  console.log(isLoggedIn);
+
   useEffect(() => {
     const checkAdmin = async () => {
       await setCheckAdmin(false);
-      if (!isLoggedIn && !authLoading) {
-        navigate("/login");
-      }
+      // if (!isLoggedIn && !authLoading) {
+      //   navigate("/login");
+      // }
     };
     checkAdmin();
   }, [authLoading, isLoggedIn]);

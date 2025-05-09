@@ -5,9 +5,11 @@ type AuthContextType = {
   isLoggedIn: boolean;
   isAdmin: boolean;
   authLoading: boolean;
+  userId: string | null;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   setIsAdmin: React.Dispatch<React.SetStateAction<boolean>>;
   setCheckAdmin: React.Dispatch<React.SetStateAction<boolean>>;
+  setUserId: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -22,6 +24,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [checkAdmin, setCheckAdmin] = useState(false); 
   const [authLoading, setAuthLoading] = useState(true); 
+  const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -31,6 +34,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         });
         if (authRes.ok) {
           setIsLoggedIn(true);
+          const data = await authRes.json();
+          setUserId(data.user._id); // Set the userId in state
         } else {
           setIsLoggedIn(false);
         }
@@ -58,7 +63,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     checkAuth();
   }, []);
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isAdmin, setIsLoggedIn, setIsAdmin, setCheckAdmin, authLoading }}>
+    <AuthContext.Provider value={{ isLoggedIn, isAdmin, setIsLoggedIn, setIsAdmin, setCheckAdmin, authLoading, userId, setUserId }}>
       {children}
     </AuthContext.Provider>
   );

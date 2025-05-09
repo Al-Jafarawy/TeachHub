@@ -1,14 +1,26 @@
 import { useEffect } from "react";
 import "../css/style.css";
 import "../css/main/contact.css";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const ContactUS = () => {
+  const { isLoggedIn, setCheckAdmin, authLoading } = useAuth();
+  const navigate = useNavigate();
+
   useEffect(() => {
     setTimeout(() => {
       const loader = document.getElementById("ftco-loader");
       if (loader) loader.style.display = "none";
     }, 1000);
-  }, []);
+    const checkAdmin = async () => {
+      await setCheckAdmin(false);
+      if (!isLoggedIn && !authLoading) {
+        navigate("/login");
+      }
+    };
+    checkAdmin();
+  }, [ isLoggedIn, authLoading ]);
 
   return (
     <>

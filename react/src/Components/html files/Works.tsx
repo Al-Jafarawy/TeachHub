@@ -1,4 +1,7 @@
 import { FaCheck, FaTimes } from 'react-icons/fa';
+import { useEffect } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const subjects = [
     {
@@ -29,6 +32,20 @@ const Works = () => {
     const allTasks = subjects.flatMap(subject => subject.tasks);
     const completedCount = allTasks.filter(task => task.done).length;
     const completionRate = (completedCount / allTasks.length) * 100;
+    
+    const { isLoggedIn, setCheckAdmin, authLoading } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const checkAdmin = async () => {
+          await setCheckAdmin(false);
+          if (!isLoggedIn && !authLoading) {
+            navigate("/login");
+          }
+        };
+        checkAdmin();
+      }, [authLoading, isLoggedIn]);
+    
 
     return (
         <div className="container mx-auto px-4 py-12">

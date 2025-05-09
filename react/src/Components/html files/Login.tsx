@@ -6,16 +6,16 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { isLoggedIn, setIsLoggedIn, setCheckAdmin } = useAuth();
+  const { isLoggedIn, setIsLoggedIn, setCheckAdmin, authLoading, setUserId } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     setCheckAdmin(false);
-    console.log(isLoggedIn);
+    // console.log(isLoggedIn);
      if (isLoggedIn) {
       navigate('/'); 
     }
-  }, []);
+  }, [ authLoading, isLoggedIn ]);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,6 +33,7 @@ const Login = () => {
       });
 
       const data = await res.json();
+      setUserId(data.user._id);
 
       if (!res.ok) throw new Error(data.error || 'Login failed');
 

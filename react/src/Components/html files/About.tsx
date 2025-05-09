@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import '../css/main/About.css'
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 export default function AboutPage() {
   const [isVisible, setIsVisible] = useState(false);
+  const { isLoggedIn, setCheckAdmin, authLoading } = useAuth();
+  const navigate = useNavigate();
 
   // Show the "scroll to top" button when the user scrolls
   const handleScroll = () => {
@@ -17,11 +21,19 @@ export default function AboutPage() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    const checkAdmin = async () => {
+      await setCheckAdmin(false);
+      if (!isLoggedIn && !authLoading) {
+        navigate("/login");
+      }
+    };
+    checkAdmin();
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
 
+  }, [ isLoggedIn, authLoading ]);
   return (
     <div className="via-pink-500 to-red-500 py-16 px-4 sm:px-6 lg:px-8 text-center">
       {/* About Section */}

@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+    const { isLoggedIn, setCheckAdmin, authLoading } = useAuth();
+    const navigate = useNavigate();
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
         {
@@ -27,6 +31,16 @@ const Hero = () => {
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     };
+
+    useEffect(() => {
+        const checkAdmin = async () => {
+          await setCheckAdmin(false);
+          if (!isLoggedIn && !authLoading) {
+            navigate("/login");
+          }
+        };
+        checkAdmin();
+      }, [authLoading, isLoggedIn]);
 
     return (
         <div className="container mx-auto px-4 py-16 my-24">
