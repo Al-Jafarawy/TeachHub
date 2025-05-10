@@ -13,6 +13,7 @@ import Contact from "./Components/html files/Contact.tsx";
 import Login from "./Components/html files/Login.tsx";
 import SignUp from "./Components/html files/SignUp.tsx";
 import Footer from "./Components/html files/Footer.tsx";
+import AdminEdiUser from "./Components/html files/admin-edit-user.tsx";
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/admin-edit-user" element={< AdminEdiUser/>} />
             </Routes>
           </main>
           <Footer />
