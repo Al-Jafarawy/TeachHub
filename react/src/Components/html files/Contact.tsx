@@ -1,38 +1,34 @@
-import { useEffect } from "react";
-import "../css/style.css";
-import "../css/main/contact.css";
-import { useAuth } from "../../context/AuthContext";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../css/main/contact.css'
 
 const ContactUS = () => {
-  const { isLoggedIn, setCheckAdmin, authLoading } = useAuth();
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // محاكاة تسجيل الدخول دائمًا
   const navigate = useNavigate();
 
   useEffect(() => {
+    // محاكاة تحميل الصفحة بدون التحقق من الباك إند
     setTimeout(() => {
       const loader = document.getElementById("ftco-loader");
       if (loader) loader.style.display = "none";
     }, 1000);
-    const checkAdmin = async () => {
-      await setCheckAdmin(false);
-      if (!isLoggedIn && !authLoading) {
-        navigate("/login");
-      }
-    };
-    checkAdmin();
-  }, [ isLoggedIn, authLoading ]);
+
+    // إذا كانت حالة تسجيل الدخول مفقودة، يمكننا توجيه المستخدم إلى صفحة الدخول
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <>
       <section
-        className="hero-wrap hero-wrap-2 "
+        className="hero-wrap hero-wrap-2"
         style={{ backgroundImage: "url('/images/bg_1.jpg')" }}
       >
         <div className="overlay"></div>
-        
       </section>
 
-      <section className="ftco-section contact-section container ">
+      <section className="ftco-section contact-section container">
         <div className="container">
           <div className="row d-flex mb-5 contact-info">
             {[
@@ -107,16 +103,16 @@ const ContactUS = () => {
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               WhatsApp Numbers
             </h3>
-            <div className="flex flex-col items-center space-y-4  ">
-              <div className="flex gap-4 " >
+            <div className="flex flex-col items-center space-y-4">
+              <div className="flex gap-4">
                 {["0100 XXX XXXX", "0111 XXX XXXX"].map((phone, idx) => (
-                  <a style={{backgroundColor:'white' ,color:'#22c55e'}}
-                  
+                  <a
+                    style={{ backgroundColor: "white", color: "#22c55e" }}
                     key={idx}
                     href={`https://wa.me/2${phone.replace(/\s+/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className=" border-2 border-green-500  font-medium py-2 px-6 rounded-lg transition duration-300 no-underline"
+                    className="border-2 border-green-500 font-medium py-2 px-6 rounded-lg transition duration-300 no-underline"
                   >
                     {phone}
                   </a>
@@ -136,17 +132,17 @@ const ContactUS = () => {
           </div>
         </div>
         <div className="contact-content">
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <input
-              type="hidden"
-              name="access_key"
-              value="c3257d43-02fb-4ff0-9a67-2128b8f8fc43"
-            />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Form submitted (no backend interaction).");
+            }}
+          >
             <input
               type="text"
               className="name-text"
-              name="text"
-              id="taxt"
+              name="name"
+              id="name"
               placeholder="Name"
               required
             />
@@ -160,11 +156,11 @@ const ContactUS = () => {
             />
             <textarea
               className="message"
-              name="massage"
-              id="massage"
+              name="message"
+              id="message"
               cols={30}
               rows={10}
-              placeholder="Massage"
+              placeholder="Message"
             />
             <button type="submit" className="button">
               Submit
