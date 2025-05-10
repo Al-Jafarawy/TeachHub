@@ -1,6 +1,6 @@
 
 import Head from "./Components/html files/Head.tsx";
-import Hero from "./Components/html files/Hero.tsx";
+import Hero from "./Components/html files/Home.tsx";
 
 
 // import Vid from './Components/Vid/Vid.tsx';
