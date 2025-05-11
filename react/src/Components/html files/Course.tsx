@@ -41,7 +41,7 @@ const EnglishUnits = () => {
     lessons?: {
       title?: string;
       description?: string;
-      videoUrls?: { url: string }[];
+      videoUrls?: { url: string }[]; 
       imageUrls?: { url: string }[];
     }[];
     title?: string;
@@ -63,7 +63,7 @@ const EnglishUnits = () => {
     const getLessons = async () => {
       try {
         const BASEURL = import.meta.env.VITE_BASE_URL;
-        const res = await fetch(`${BASEURL}lessons`, {
+        const res = await fetch(`${BASEURL}lessons`, {  // تم التعديل هنا
           method: "GET",
           credentials: "include",
         });
@@ -141,7 +141,6 @@ const EnglishUnits = () => {
                           </div>
                         )}
 
-                        {/* Display only one active image */}
                         {activeImage.unitIndex === unitIndex && activeImage.lessonIndex === lessonIndex && (
                           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                             {lesson?.imageUrls?.map((img, i) => (

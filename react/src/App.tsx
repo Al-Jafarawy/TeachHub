@@ -12,6 +12,8 @@ import Contact from "./Components/html files/Contact.tsx";
 import Login from "./Components/html files/Login.tsx";
 import SignUp from "./Components/html files/SignUp.tsx";
 import Footer from "./Components/html files/Footer.tsx";
+import AdminEdiUser from "./Components/html files/admin-edit-user.tsx";
+import HomePage from "./Components/html files/Home.tsx";
 
 
 const App = () => {
