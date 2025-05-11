@@ -2,18 +2,18 @@ import { FaUserCircle, FaEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "../css/main/profile.css";
 
 const Profile = () => {
-  const { isLoggedIn, setCheckAdmin, authLoading, userId } = useAuth();
+  const { setCheckAdmin, authLoading, userId } = useAuth();
+  const [user, setUser] = useState({
+    name: "Ahmed Al-Jafarawy",
+    username: "ahmed123",
+    email: "ahmed.al.jafarawy@gmail.com",
+  });
 
-  interface User {
-    name?: string;
-    username?: string;
-    email?: string;
-  }
-
-  const [user, setUser] = useState<User>({});
   const navigate = useNavigate();
+  const isLoggedIn = true;
 
   useEffect(() => {
     const checkAdmin = async () => {
@@ -22,27 +22,15 @@ const Profile = () => {
         navigate("/login");
       }
     };
-    checkAdmin();
 
-    const getUser = async () => {
-      try {
-        const BASEURL = import.meta.env.VITE_BASE_URL;
-        const res = await fetch(`${BASEURL}users/user/${userId}`, {
-          method: "GET",
-          credentials: "include",
-        });
-        if (!res.ok) throw new Error("Failed to fetch user data");
-        const data = await res.json();
-        setUser(data);
-        console.log("User data:", data);
-      } catch (err) {
-        console.error(
-          "Error fetching user data:",
-          err instanceof Error ? err.message : err
-        );
-      }
-    };
-    if (!authLoading) getUser();
+    if (!authLoading && isLoggedIn) {
+      checkAdmin();
+      setUser({
+        name: "Ahmed Al-Jafarawy",
+        username: "ahmed123",
+        email: "ahmed.al.jafarawy@gmail.com",
+      });
+    }
   }, [authLoading, isLoggedIn]);
 
   const handleEditUsers = () => {
@@ -50,7 +38,8 @@ const Profile = () => {
   };
 
   return !authLoading ? (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gray-100 py-10">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gray-100">
+      
       {/* زر الأدمن خارج الكارد */}
       <div className="w-full  max-w-md mr-150 mb-50  mb-4">
         <button
@@ -70,41 +59,33 @@ const Profile = () => {
         </div>
 
         {/* Title */}
-        <h2 className="text-3xl font-bold text-[#C89934] text-center mb-6">
+        <h2 className="text-3xl font-bold text-[#C89934] mb-8 text-center">
           {user?.name ? user.name.split(" ")[0] : "User"} Profile
         </h2>
 
         {/* Profile Info */}
-        <div className="space-y-4">
+        <div className="space-y-6 text-left">
           <div className="flex justify-start border-b pb-2">
-            <span className="text-gray-500 w-32">Name:</span>
-            <span className="font-medium text-gray-800">
-              {user?.name || ""}
-            </span>
+            <span className="text-gray-500 mr-2">Name:</span>
+            <span className="font-medium text-gray-800">{user?.name || ""}</span>
           </div>
           <div className="flex justify-start border-b pb-2">
-            <span className="text-gray-500 w-32">Username:</span>
-            <span className="font-medium text-gray-800">
-              {user?.username || ""}
-            </span>
+            <span className="text-gray-500 mr-2">Username:</span>
+            <span className="font-medium text-gray-800">{user?.username || ""}</span>
           </div>
           <div className="flex justify-start border-b pb-2">
-            <span className="text-gray-500 w-32">Email:</span>
-            <span className="font-medium text-gray-800">
-              {user?.email || ""}
-            </span>
+            <span className="text-gray-500 mr-2">Email:</span>
+            <span className="font-medium text-gray-800">{user?.email || ""}</span>
           </div>
           <div className="flex justify-start">
-            <span className="text-gray-500 w-32">Academic Track:</span>
+            <span className="text-gray-500 mr-2">Academic Track:</span>
             <span className="font-medium text-gray-800">Literary Section</span>
           </div>
         </div>
       </div>
     </div>
   ) : (
-    <div className="min-h-screen flex items-center justify-center">
-      Loading...
-    </div>
+    <div>loading...</div>
   );
 };
 
