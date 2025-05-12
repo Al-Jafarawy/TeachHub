@@ -30,18 +30,16 @@ const TopStudents = () => {
         <div className="about-this-page">
           <h2>What This Page Is About</h2>
           <p className="about-top-students-page">
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
-            Lorem ipsum dolor sit amet consectetur adipisicing eli
+            Lorem ipsum dolor sit amet conse Lorem ipsum dolor sit amet
+            consectetur adipisicing eldif Lorem ipsum dolor sit amet consectetur
+            adipLorem ipsum dolor sit amet consectetur adipisicing eli Lorem
+            ipsum dolor sit amet consectetur adipisicing eli Lorem ipsum dolor
+            sit amet consectetur adipisicing eldfi Lorem ipsum dolor sit amet
+            consectetur adipis Lorem ipsum dolor sit amet consectetur
+            adipisidfcing elji Lorem ipsum dolor sit amet consectetur
+            adipisicing eli Lorem ipsum dolor sit amet consectetur df Lorem
+            ipsum dolor sit amet consectetur adipisicing elsih Lorem ipsum dolor
+            sit amet consectetur adipis
           </p>
         </div>
 
