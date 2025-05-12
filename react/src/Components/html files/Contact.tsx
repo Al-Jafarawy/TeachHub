@@ -3,17 +3,15 @@ import { useNavigate } from "react-router-dom";
 import '../css/main/contact.css'
 
 const ContactUS = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // محاكاة تسجيل الدخول دائمًا
+  const [isLoggedIn, ] = useState(true); 
   const navigate = useNavigate();
 
   useEffect(() => {
-    // محاكاة تحميل الصفحة بدون التحقق من الباك إند
     setTimeout(() => {
       const loader = document.getElementById("ftco-loader");
       if (loader) loader.style.display = "none";
     }, 1000);
 
-    // إذا كانت حالة تسجيل الدخول مفقودة، يمكننا توجيه المستخدم إلى صفحة الدخول
     if (!isLoggedIn) {
       navigate("/login");
     }
@@ -71,7 +69,7 @@ const ContactUS = () => {
           {/* Facebook */}
           <div className="box-shadow-global text-center">
             <img
-              src="/2021_Facebook_icon.svg.png"
+              src="/face-icon.png"
               alt="Facebook"
               className="w-16 h-16 mx-auto mb-6"
             />
@@ -96,7 +94,7 @@ const ContactUS = () => {
           {/* WhatsApp */}
           <div className="box-shadow-global text-center">
             <img
-              src="/WhatsApp.svg.webp"
+              src="/whatsApp-icon.webp"
               alt="WhatsApp"
               className="w-16 h-16 mx-auto mb-6"
             />

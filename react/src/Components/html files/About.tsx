@@ -80,13 +80,13 @@ export default function AboutPage() {
       </div>
 
       {/* Stats Section */}
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
+      <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-12 text-center pt-20">
         {[
           { num: "20+", label: "Years of Experience" },
           { num: "3000+", label: "Students Taught" },
           { num: "50+", label: "Workshops Conducted" }
         ].map((stat, i) => (
-          <div key={i} className="p-8 text-gray rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300">
+          <div key={i} className="p-8 text-gray rounded-2xl transform hover:scale-105 transition-all duration-300">
             <p className="text-5xl font-bold">{stat.num}</p>
             <p className="text-xl">{stat.label}</p>
           </div>
@@ -95,14 +95,13 @@ export default function AboutPage() {
 
       <Link to="/contact">
         <div className="mt-16">
-          <button className="contact-about-page bg-indigo-600 hover:bg-indigo-700 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl transition-all duration-300 transform hover:scale-105">
+          <button className="bg-indigo-100 text-indigo-700 font-semibold px-8 py-3 rounded-full hover:bg-indigo-200 transition">
             Contact Islam Ahmed
           </button>
         </div>
       </Link>
 
 
-      {/* Footer Section */}
       <div className="text-black py-6 mt-16 rounded-t-3xl">
         <p className="text-xl font-medium">Learn English with Islam Ahmed</p>
         <p className="mt-2 text-sm">Follow me on social media for tips and updates.</p>
