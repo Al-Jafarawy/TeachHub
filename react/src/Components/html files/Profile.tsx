@@ -1,10 +1,10 @@
-import { FaUserCircle } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { FaUserCircle } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
-  const { isLoggedIn, setCheckAdmin, authLoading, userId } = useAuth();
+  const { isLoggedIn, setCheckAdmin, authLoading, userId, isAdmin } = useAuth();
   interface User {
     name?: string;
     username?: string;
@@ -16,9 +16,9 @@ const Profile = () => {
 
   useEffect(() => {
     const checkAdmin = async () => {
-      await setCheckAdmin(false);
+      await setCheckAdmin(true);
       if (!isLoggedIn && !authLoading) {
-        navigate("/login");
+        navigate('/login');
       }
     };
 
@@ -30,16 +30,15 @@ const Profile = () => {
       try {
         const BASEURL = import.meta.env.VITE_BASE_URL;
         const res = await fetch(`${BASEURL}users/user/${userId}`, {
-          method: "GET",
-          credentials: "include",
+          method: 'GET',
+          credentials: 'include',
         });
-        if (!res.ok) throw new Error("Failed to fetch user data");
+        if (!res.ok) throw new Error('Failed to fetch user data');
         const data = await res.json();
         setUser(data);
-        console.log("User data:", data);
       } catch (err) {
         console.error(
-          "Error fetching user data:",
+          'Error fetching user data:',
           err instanceof Error ? err.message : err
         );
       }
@@ -51,15 +50,15 @@ const Profile = () => {
   }, [authLoading, isLoggedIn, userId, setCheckAdmin, navigate]);
 
   return !authLoading ? (
-    <div className="min-h-screen relative min-h-screen flex flex-col items-center justify-center px-4 bg-gray-100">
-
+    <div className="min-h-screen relative flex flex-col items-center justify-center px-4 bg-gray-100">
+      {isAdmin ? (
         <button
-          onClick={() => navigate("/admin-edit-user")}
+          onClick={() => navigate('/admin-edit-user')}
           className="px-6 py-2 absolute top-4 left-4 bg-[#C89934] text-white font-semibold rounded-lg shadow-md hover:bg-[#a7872a] focus:outline-none focus:ring-2 focus:ring-[#C89934] focus:ring-opacity-50"
         >
           Edit Users
         </button>
-
+      ) : null}
 
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
         {/* Icon */}
@@ -70,9 +69,9 @@ const Profile = () => {
         {/* Title */}
         <h2
           className="text-3xl font-bold text-[#C89934] mb-8 text-center"
-          style={{ marginBottom: "20px" }}
+          style={{ marginBottom: '20px' }}
         >
-          {user?.name ? user.name.split(" ")[0] : "User"} Profile
+          {user?.name ? user.name.split(' ')[0] : 'User'} Profile
         </h2>
 
         {/* Profile Info */}
@@ -80,19 +79,19 @@ const Profile = () => {
           <div className="flex justify-start border-b pb-2">
             <span className="text-gray-500 mr-2">Name:</span>
             <span className="font-medium text-gray-800">
-              {user?.name || ""}
+              {user?.name || ''}
             </span>
           </div>
           <div className="flex justify-start border-b pb-2">
             <span className="text-gray-500 mr-2">Username:</span>
             <span className="font-medium text-gray-800">
-              {user?.username || ""}
+              {user?.username || ''}
             </span>
           </div>
           <div className="flex justify-start border-b pb-2">
             <span className="text-gray-500 mr-2">Email:</span>
             <span className="font-medium text-gray-800">
-              {user?.email || ""}
+              {user?.email || ''}
             </span>
           </div>
           <div className="flex justify-start">

@@ -1,21 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import { useEffect, useState } from "react";
-import "../css/main/nav.css";
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import { useEffect, useState } from 'react';
+import '../css/main/nav.css';
 
 const Header = () => {
   const { isLoggedIn, setIsLoggedIn, setCheckAdmin, authLoading } = useAuth();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  console.log(isLoggedIn);
 
   useEffect(() => {
     const checkAdmin = async () => {
-      await setCheckAdmin(false);
-      // if (!isLoggedIn && !authLoading) {
-      //   navigate("/login");
-      // }
+      await setCheckAdmin(true);
     };
     checkAdmin();
   }, [authLoading, isLoggedIn]);
@@ -24,14 +20,14 @@ const Header = () => {
     try {
       const BASEURL = import.meta.env.VITE_BASE_URL;
       const res = await fetch(`${BASEURL}users/auth/logout`, {
-        method: "GET",
-        credentials: "include",
+        method: 'GET',
+        credentials: 'include',
       });
-      if (!res.ok) throw new Error("Logout failed");
+      if (!res.ok) throw new Error('Logout failed');
       setIsLoggedIn(false);
-      navigate("/login");
+      navigate('/login');
     } catch (err) {
-      console.error("Logout error:", err instanceof Error ? err.message : err);
+      console.error('Logout error:', err instanceof Error ? err.message : err);
     }
   };
 
@@ -47,15 +43,15 @@ const Header = () => {
           {/* Desktop Navigation - Hidden on medium & smaller screens */}
           <nav className="hidden lg:flex space-x-6 mobile-hidden-nav">
             {[
-              ["/", "Home"],
-              ["/profile", "Profile"],
-              ["/reports", "Reports"],
-              ["/works", "Works"],
-              ["/about", "About"],
-              ["/top-students", "Top Students"],
-              ["/courses", "Course"],
-              ["/blog", "Blog"],
-              ["/contact", "Contact"],
+              ['/', 'Home'],
+              ['/profile', 'Profile'],
+              ['/reports', 'Reports'],
+              ['/works', 'Works'],
+              ['/about', 'About'],
+              ['/top-students', 'Top Students'],
+              ['/courses', 'Course'],
+              ['/blog', 'Blog'],
+              ['/contact', 'Contact'],
             ].map(([path, label]) => (
               <Link
                 key={path}
@@ -122,15 +118,15 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-4 flex flex-col space-y-2 bg-white rounded-lg p-4 shadow-lg">
             {[
-              ["/", "Home"],
-              ["/profile", "Profile"],
-              ["/reports", "Reports"],
-              ["/works", "Works"],
-              ["/about", "About"],
-              ["/top-students", "Top Students"],
-              ["/courses", "Course"],
-              ["/blog", "Blog"],
-              ["/contact", "Contact"],
+              ['/', 'Home'],
+              ['/profile', 'Profile'],
+              ['/reports', 'Reports'],
+              ['/works', 'Works'],
+              ['/about', 'About'],
+              ['/top-students', 'Top Students'],
+              ['/courses', 'Course'],
+              ['/blog', 'Blog'],
+              ['/contact', 'Contact'],
             ].map(([path, label]) => (
               <Link
                 key={path}

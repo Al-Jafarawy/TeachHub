@@ -42,7 +42,6 @@ const SignUp = () => {
 
       if (!res.ok) throw new Error(data.error || 'Sign up failed');
 
-      console.log('User Created', data);
       setIsLoggedIn(false);
       navigate('/Login'); // Redirect to login page after successful signup
     } catch (err) {

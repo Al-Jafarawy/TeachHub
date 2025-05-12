@@ -11,7 +11,6 @@ const Login = () => {
 
   useEffect(() => {
     setCheckAdmin(false);
-    // console.log(isLoggedIn);
      if (isLoggedIn) {
       navigate('/'); 
     }
@@ -37,7 +36,6 @@ const Login = () => {
 
       if (!res.ok) throw new Error(data.error || 'Login failed');
 
-      console.log('Logged in:', data);
       setIsLoggedIn(true);
       navigate('/'); 
 

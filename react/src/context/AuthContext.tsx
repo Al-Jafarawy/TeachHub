@@ -40,7 +40,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           setIsLoggedIn(false);
         }
         setIsAdmin(false); 
-
         if(checkAdmin) {
           const adminRes = await fetch(`${import.meta.env.VITE_BASE_URL}users/auth/admin`, {
             credentials: 'include',
@@ -61,7 +60,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     };
 
     checkAuth();
-  }, []);
+  }, [checkAdmin]);
   return (
     <AuthContext.Provider value={{ isLoggedIn, isAdmin, setIsLoggedIn, setIsAdmin, setCheckAdmin, authLoading, userId, setUserId }}>
       {children}
