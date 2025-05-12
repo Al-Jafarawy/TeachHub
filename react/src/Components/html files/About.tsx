@@ -1,20 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from "react";
 import '../css/main/About.css';
 
 export default function AboutPage() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Show the "scroll to top" button when the user scrolls
-  const handleScroll = () => {
-    setIsVisible(window.scrollY > 200);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="via-pink-500 to-red-500 py-16 px-4 sm:px-6 lg:px-8 text-center">
       {/* About Section */}
@@ -114,17 +101,6 @@ export default function AboutPage() {
         </div>
       </Link>
 
-      {/* Scroll to Top Button */}
-      {isVisible && (
-        <div className="fixed bottom-10 right-10">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white p-6 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105"
-          >
-            ↑
-          </button>
-        </div>
-      )}
 
       {/* Footer Section */}
       <div className="text-black py-6 mt-16 rounded-t-3xl">
