@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext"; 
-import Header from "./Components/html files/header.tsx";
+import Header from "./Components/html files/nav.tsx";
 import Profile from "./Components/html files/Profile.tsx";
 import Reports from "./Components/html files/Report .tsx";
 import Works from "./Components/html files/Works.tsx";
