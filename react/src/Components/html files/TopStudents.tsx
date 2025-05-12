@@ -6,24 +6,9 @@ const TopStudents = () => {
     <>
       <section
         className="hero-wrap hero-wrap-2"
-        style={{ backgroundImage: `url('/images/bg_1.jpg')` }}
+        style={{ backgroundImage: `url('/homePage.jpg')` }}
       >
         <div className="overlay"></div>
-        <div className="container">
-          <div className="row no-gutters slider-text align-items-center justify-content-center">
-            <div className="col-md-9 ftco-animate text-center">
-              <h1 className="mb-2 bread">Top Students</h1>
-              <p className="breadcrumbs">
-                <span className="mr-2">
-                  <a href="/">
-                    Home <i className="ion-ios-arrow-forward"></i>
-                  </a>
-                </span>
-                <span>Top Students</span>
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section className="container">

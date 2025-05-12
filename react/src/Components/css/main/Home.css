@@ -2,3 +2,9 @@
   color: #c89934;
   font-weight: 700;
 }
+a:hover, button:hover {
+  cursor: pointer;
+}
+button{
+  border-radius: 6px;
+}

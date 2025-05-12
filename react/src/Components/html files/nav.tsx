@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useEffect, useState } from "react";
-import "../css/main/header.css";
+import "../css/main/nav.css";
 
 const Header = () => {
   const { isLoggedIn, setIsLoggedIn, setCheckAdmin, authLoading } = useAuth();

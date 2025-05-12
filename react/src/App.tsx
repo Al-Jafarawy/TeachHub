@@ -14,12 +14,14 @@ import SignUp from "./Components/html files/SignUp.tsx";
 import Footer from "./Components/html files/Footer.tsx";
 import AdminEdiUser from "./Components/html files/admin-edit-user.tsx";
 import HomePage from "./Components/html files/Home.tsx";
+import ScrollToTop from './Components/ScrollToTop.tsx';
 
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop /> {/* إضافة مكون ScrollToTop هنا */}
         <div className="app-container">
           <Header />
           <main className="container mx-auto px-4 py-6">
@@ -35,7 +37,7 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/admin-edit-user" element={< AdminEdiUser/>} />
+              <Route path="/admin-edit-user" element={<AdminEdiUser />} />
             </Routes>
           </main>
           <Footer />

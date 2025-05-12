@@ -11,16 +11,17 @@ export default function HomePage() {
             <h1 className="text-5xl font-extrabold mb-6 leading-tight">
               Learn English with Confidence
             </h1>
-            <p className="text-xl mb-8 text-gray-600">
+            <p className="text-xl mb-8 text-gray-600 pb-8">
               Personalized lessons, expert guidance, and real-world practice to
               take your English to the next level.
             </p>
             <Link to="/about">
-              <button className="bg-white text-indigo-700 font-semibold px-8 py-3 rounded-full hover:bg-indigo-100 transition">
-                Contact Instructor
+              <button className="bg-indigo-100 text-indigo-700 font-semibold px-8 py-3 rounded-full hover:bg-indigo-200 transition">
+                Contact Instructor <i className="fa fa-arrow-right "></i>
               </button>
             </Link>
           </div>
+
           <img
             src="https://images.pexels.com/photos/3183189/pexels-photo-3183189.jpeg"
             alt="English Learning"
@@ -103,14 +104,14 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold mb-4 text-indigo-700">
               Discover Insights in Our Blog
             </h2>
-            <p className="text-lg text-gray-700 mb-6">
+            <p className="text-lg text-gray-700 mb-6  pb-2">
               Explore tips, strategies, and stories to improve your English
               learning journey. Explore tips, strategies, and stories to improve
               your English learning journey.
             </p>
             <Link to="/blog">
-              <button className="bg-indigo-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition">
-                Read the Blog
+              <button className="bg-indigo-100 text-indigo-700 font-semibold px-8 py-3 rounded-full hover:bg-indigo-200 transition">
+                Read the Blog <i className="fa fa-arrow-right "></i>
               </button>
             </Link>
           </div>
@@ -125,13 +126,13 @@ export default function HomePage() {
       {/* Contact CTA */}
       <section className="py-20 px-6 text-center">
         <h2 className="text-3xl font-bold mb-6">Ready to Start Learning?</h2>
-        <p className="text-lg mb-8 text-black-700">
+        <p className="text-lg mb-8 text-black-700 pb-2">
           Contact us now and take your English to the next level with Islam
           Ahmed.
         </p>
         <Link to="/contact">
-          <button className="bg-indigo-400 text-white font-semibold px-4 py-3 rounded-full hover:bg-indigo-600 transition">
-            Get in Touch
+          <button className="bg-indigo-100 text-indigo-700 font-semibold px-8 py-3 rounded-full hover:bg-indigo-200 transition">
+            Get in Touch <i className="fa fa-arrow-right "></i>
           </button>
         </Link>
       </section>
