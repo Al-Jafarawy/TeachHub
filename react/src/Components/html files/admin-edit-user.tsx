@@ -1,12 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Save, Trash2 } from "lucide-react";
-import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const AdminEditUser = () => {
-  const { isLoggedIn, setCheckAdmin, authLoading, userId } = useAuth();
-  const navigate = useNavigate();
-
   // تعريف نوع المستخدم
   type User = {
     _id: string;
@@ -19,7 +14,29 @@ const AdminEditUser = () => {
     role: string;
   };
 
-  const [users, setUsers] = useState<User[]>([]);
+  // بيانات وهمية
+  const [users, setUsers] = useState<User[]>([
+    {
+      _id: "1",
+      name: "Ahmed Ali",
+      email: "ahmed@example.com",
+      username: "ahmed123",
+      questions: 20,
+      trueQuestions: 15,
+      falseQuestions: 5,
+      role: "student",
+    },
+    {
+      _id: "2",
+      name: "Sara Adel",
+      email: "sara@example.com",
+      username: "saraA",
+      questions: 30,
+      trueQuestions: 25,
+      falseQuestions: 5,
+      role: "teacher",
+    },
+  ]);
 
   // تغيير البيانات
   const handleChange = (id: string, field: string, value: string | number) => {
@@ -30,84 +47,22 @@ const AdminEditUser = () => {
     );
   };
 
-  // حفظ البيانات المعدلة (إرسال البيانات كـ string)
-  const handleSave = async (user: User) => {
-    try {
-      const userString = JSON.stringify(user);
-      const res = await fetch(`${import.meta.env.VITE_BASE_URL}users/user/update/${user._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: userString,  // إرسال البيانات كـ string
-      });
-
-      if (!res.ok) throw new Error("Failed to update user");
-
-    } catch (err) {
-      console.error("Update failed:", err);
-    }
+  // حفظ البيانات المعدلة (وهمي فقط)
+  const handleSave = (user: User) => {
+    console.log("Saved user:", user);
+    alert(`Changes saved for ${user.name}`);
   };
 
-  // حذف المستخدم (إرسال البيانات كـ string)
-  const handleDelete = async (id: string) => {
-    try {
-      const res = await fetch(`${import.meta.env.VITE_BASE_URL}users/user/delete/${id}`, {
-        method: "DELETE",
-        credentials: "include",
-      });
-
-      if (!res.ok) throw new Error("Failed to delete user");
-
-      setUsers((prev) => prev.filter((user) => user._id !== id));
-    } catch (err) {
-      console.error("Delete failed:", err);
-    }
+  // حذف المستخدم (وهمي فقط)
+  const handleDelete = (id: string) => {
+    setUsers((prev) => prev.filter((user) => user._id !== id));
+    alert(`User deleted`);
   };
-
-  // تحميل البيانات عند التحقق من صلاحية الدخول
-  useEffect(() => {
-    const checkAdmin = async () => {
-      await setCheckAdmin(true);
-      if (!isLoggedIn && !authLoading) {
-        navigate('/login');
-      }
-    };
-
-    if (!authLoading && !isLoggedIn) {
-      checkAdmin();
-    }
-
-    const getUsers = async () => {
-      try {
-        const BASEURL = import.meta.env.VITE_BASE_URL;
-        const res = await fetch(`${BASEURL}users`, {
-          method: 'GET',
-          credentials: 'include',
-        });
-        if (!res.ok) throw new Error('Failed to fetch user data');
-        const data = await res.json();
-        setUsers(data);
-      } catch (err) {
-        console.error(
-          'Error fetching user data:',
-          err instanceof Error ? err.message : err
-        );
-      }
-    };
-
-    if (!authLoading && isLoggedIn) {
-      getUsers();
-    }
-  }, [authLoading, isLoggedIn, userId, setCheckAdmin, navigate]);
 
   return (
     <>
-      {/* التكرار عبر المستخدمين لعرض كل مستخدم */}
       {users.map((user) => (
         <div key={user._id} className="bg-gray-100 p-5 rounded-xl shadow-sm border border-gray-200">
-          {/* بيانات المستخدم */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             <input
               type="text"
@@ -132,13 +87,12 @@ const AdminEditUser = () => {
             />
           </div>
 
-          {/* الأسئلة والتصحيحات */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             <input
               type="number"
               value={user.questions}
               onChange={(e) =>
-                handleChange(user._id, "exams", parseInt(e.target.value) || 0)
+                handleChange(user._id, "questions", parseInt(e.target.value) || 0)
               }
               placeholder="Total Questions"
               className="p-3 border rounded-md w-full"
@@ -163,7 +117,6 @@ const AdminEditUser = () => {
             />
           </div>
 
-          {/* أزرار الحفظ والحذف */}
           <div className="flex justify-end gap-4">
             <button
               onClick={() => handleSave(user)}
