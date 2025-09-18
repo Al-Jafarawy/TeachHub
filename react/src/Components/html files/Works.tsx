@@ -1,6 +1,5 @@
-// src/components/Works.js
+// src/components/Works.tsx
 import { FaCheck, FaTimes } from 'react-icons/fa';
-import { useEffect } from 'react';
 
 const subjects = [
   {
@@ -34,7 +33,10 @@ const Works = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold mb-8 text-center" style={{ color: '#C89934', marginBottom: '50px' }}>
+      <h2
+        className="text-3xl font-bold mb-8 text-center"
+        style={{ color: '#C89934', marginBottom: '50px' }}
+      >
         English Assignments for April
       </h2>
 
