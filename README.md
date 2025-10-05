@@ -2,7 +2,7 @@
 
 **TeachHub** is an educational web platform built with React + TypeScript + Vite. It connects teachers and students in a seamless way, providing tools for communication, course management, reports, and interactive learning.
 
-Live Demo: https://teachhub.vercel.app/
+Live Demo: https://aljafarawy-teach-hub.vercel.app/
 
 ---
 
